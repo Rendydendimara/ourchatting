@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Chatting</title>
+    <!-- hubungkan file css yang dibuat sendiri -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- hubungkan file font awesome css -->
+    <link rel="stylesheet" href="/assets/font-awesome-free-5.9.0/css/all.min.css">
+    <!-- Hubungkan file bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+ </head>
+<body>
+ 
+    <div class="container mt-2" style="box-shadow: 0 3px 20px rgb(0, 0, 0, 0.4);">
+        <h1 class="text-center text-white bg-dark">PENDAFTARAN AKUN OurChatting</h1>
+        <div class="container-wrap mt-5">
+            <form class="needs-validation" action="/ourchatting/signup" method="POST" novalidate>
+                <label for="name">Nama Anda</label>
+                <input type="text" class="form-control" required name="name" id="name" placeholder="Masukan Nama Akun Anda">
+                <div class="invalid-feedback">
+                    Masukan Nama Anda
+                </div>
+                <label for="password">Password Anda</label>
+                <input type="password" class="form-control" required name="password" id="password" placeholder="Masukan Password Akun Anda">
+                <div class="invalid-feedback">
+                    Password Belum Memenuhi Kriteria
+                </div>
+                <small class="text-danger">Kriteria Password Harus Terdiri Dari Kombinasi Huruf dan Angkal Bila Perlu Ada Baris Baru Dan Harus Lebih Dari 6 Karakter</small><br>  
+                <label for="rewritePassword">Tulis Ulang   Password Anda</label>
+                <input type="password" class="form-control" required name="rewritePassword" id="rewritePassword" placeholder="Masukan Kembali Password Akun Anda">
+                <label for="email">Email Anda</label>
+                <input type="email" class="form-control" required name="email" id="email" placeholder="Masukan Email Anda">
+                <div class="invalid-feedback">
+                    Masukan Email Anda Dengan Benar
+                </div>
+   
+                <div class="bg-light" style="width: 100%">
+                    <p class="text-danger text-center mt-3"><%=message%></p>
+                </div>         
+                <center><button type="submit" class="btn btn-success text-center mt-3" style="width: 90%">DAFTAR AKUN</button></center>  
+            </form>        
+        </div>
+        
+        <div class="bg-light" style="width: 100%">
+            <p class="text-black-50 text-center mt-5">SIGNUP AKUN OurChatting</p>
+        </div>         
+        
+        <div class="bg-dark" style="width: 100%">
+                <p class="text-center text-white">OurChatting.com copyright@2019 by r3ndyDinar</p> 
+        </div>         
+    </div>
+  
+    
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/css/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="/assets/js/jquery.js"></script> -->
+
+</body>
+</html>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+         }, false);
+    })();
+</script>

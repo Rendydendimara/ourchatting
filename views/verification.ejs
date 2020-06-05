@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Chatting</title>
+    <!-- hubungkan file css yang dibuat sendiri -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- hubungkan file font awesome css -->
+    <link rel="stylesheet" href="/assets/font-awesome-free-5.9.0/css/all.min.css">
+    <!-- Hubungkan file bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+ </head>
+<body>
+  <div class="container mt-2" style="box-shadow: 0 3px 20px rgb(0, 0, 0, 0.4);">
+    <h1 class="text-center text-white bg-dark"> Verifikasi Akun OurChatting Anda</h1>     
+    <hr>
+    <h3 class="text-center"><%=messageEmail%></h3>
+    <div style="margin-top: 8%">
+      <form class="needs-validation" action="/ourchatting/verification" method="POST" novalidate>              
+        <div class="text-center">
+          <input name="token1" type="text" class="form-control" size="4" required>
+        </div>
+        <div class="pt-3" style="margin-left: 72%;"> Token Belum Diterima ? <a href="/ourchatting/signup/verification/gettoken">Kirim Ulang Token</a></div>
+        <div class="bg-light" style="width: 100%">
+          <p class="text-danger text-center mt-5"><%=message%></p>
+        </div>         
+        <center><button type="submit" class="btn btn-danger" style="width: 90%">VERIFIKASI </button></center>
+                    
+      </form>
+    </div>           
+    <div class="bg-light" style="width: 100%; margin-top: 10%" >
+      <p class="text-black-50 text-center mt-5">VERIFIKASI AKUN OurChatting</p>
+    </div>                
+    <div class="bg-dark" style="width: 100%">
+      <p class="text-center text-white">OurChatting.com copyright@2019 by r3ndyDinar</p> 
+    </div>         
+  </div>
+     
+  <!-- Optional JavaScript -->
+  <!-- Popper.js first, then Bootstrap JS -->
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/css/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>

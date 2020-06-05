@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Chatting</title>
+    <!-- hubungkan file css yang dibuat sendiri -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- hubungkan file font awesome css -->
+    <link rel="stylesheet" href="/assets/font-awesome-free-5.9.0/css/all.min.css">
+    <!-- Hubungkan file bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+ </head>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="#page-top"> OURCHATTING HOME</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/profile">PROFILE</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/teman">TEMAN</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/about">ABOUT</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/contact">CONTACT</a>
+                   </li>
+                    <li class="nav-item js-scroll-trigger">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/feedback">FEEDBACK</a>
+                    </li>
+                    <li class="nav-item js-scroll-trigger">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+        
+    <div style="width: 90%" class="m-5">
+        <!-- tempat menaruh pesan kesalahan saat melakukan perubahan akun -->
+        <h1 class="text-danger text-center"><%=message%></h1>
+        <div class="alert alert-success alert-dismissible fade show bg-light text-black-50" role="alert">GANTI PASSWORD
+            <button type="button" data-target="#ubahPassword"  data-toggle="modal"  class="btn btn-primary btn-sm" style="margin-left: 100%">GANTI</button>
+            <!-- pop up modal ubah bio account -->
+            <div class="modal fade" id="ubahPassword" role="dialog" arialabelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ganti Password</h5>
+                            <button type="botton" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- form ubah bio account -->                                   
+                            <form action="/ourchatting/user/change/password" method="POST">
+                                <div class="form-group">
+                                    <input type="password" class="form-control mb-2" required name="oldPassword" placeholder="Masukan Password Lama Anda">
+                                    <input type="password" class="form-control mb-2" required name="newPassword" placeholder="Masukan Password Baru Anda">
+                                    <input type="password" class="form-control mb-2" required name="rewriteNewPassword" placeholder="Tulis Ulang Password Baru Anda">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">GANTI PASSWORD</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                                              
+             </div>
+        </div>
+        <div class="alert alert-success alert-dismissible fade show bg-light text-black-50" role="alert">HAPUS AKUN
+            <button type="button" data-target="#hapusAkun"  data-toggle="modal"  class="btn btn-primary btn-sm" style="margin-left: 100%">HAPUS</button>
+            <!-- pop up modal ubah bio account -->
+            <div class="modal fade" id="hapusAkun" role="dialog" arialabelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Hapus Akun</h5>
+                            <button type="botton" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5 class="text-danger" style="font-weight: bold">MENGHAPUS AKUN ANDA AKAN: </h5>
+                            <ul>
+                                <li><p>Hapus Akun Dari OurChatting</p></li>
+                                <li><p>Riwayat Pesan Anda Masih Tersimpan Di OurChatting</p></li>
+                                <li><p>Hapus Anda Dari Daftar Teman Anda Di OurChatting</p></li>
+                            </ul>
+                            <!-- form ubah bio account -->                                   
+                            <form action="/ourchatting/user/delete_akun" method="POST">
+                                <div class="form-group">
+                                    <input type="password" class="form-control mb-2" required name="password" placeholder="Password Anda Untuk Konfirmasi Penghapusan Akun">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger">HAPUS AKUN</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                                              
+            </div>
+         </div>
+    </div>
+    <div>
+        <div class="footer bg-dark fixed-bottom text-white text-center">copyright@2019 by r3ndyDinar</div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/css/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+</body>
+</html>

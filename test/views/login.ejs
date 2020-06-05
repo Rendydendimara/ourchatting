@@ -1,0 +1,162 @@
+<!-- Modal Login Form dari Website W3Schools -->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style type="text/css">
+		body{ font-family: Arial, Helvetica, sans-serif; }		
+		/*Full-width input fields*/
+		/*new. cara pengambil selector*/
+		input[type=text], input[type=passoword]{
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
+		/*Set a style for all button*/
+		button{
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+		}
+
+		button:hover{
+			opacity: 0.8;
+		}
+
+		/*Extra styles for the cancel button*/
+		.cancelbtn{
+			width: auto;
+			padding: 10px 18px;
+			background-color: #f44336;
+
+		}
+
+		/*Center the image and position the close button*/
+		.imgcontainer{
+			text-align: center;
+			margin: 24px 0 12px 0;
+			position: relative;
+		}
+
+		.imgavatar{
+			width: 40%;
+			border-radius: 50%;
+		}
+
+		.container{
+			padding: 16px;
+		}
+
+		span.psw{
+			float: right;
+			padding-top: 16px;
+		}
+
+		/*The modal ( background )*/
+		.modal{
+			display: none; /*Hidden by default*/
+			position: fixed; /*stay in place*/
+			z-index: 1; /*sit on top*/
+			left: 0;
+			top: 0;
+			width: 100%; /*full width*/ 
+			height: 100%; /*full height*/
+			overflow: auto; /*Enable scroll if needed*/
+			background-color: rgb(0,0,0); /*Fallback Color*/
+			background-color: rgb(0,0,0,0.4); /*Black w/ opacity*/
+			padding-top: 60px;
+		}
+		/*Modal content/box*/
+		.modal-content{
+			background-color: #fefefe;
+			margin: 5% auto 15% auto; /*5% from the top, 15% from the bottom and centered*/
+			border: 1px solid #888;
+			width: 80% /*Could be more or less, depending on the screen size*/
+
+		}
+		/*Close the button*/
+		.close{
+			position: absolute;
+			right: 25px;
+			top: 0;
+			color: #000;
+			font-size: 35px;
+			font-weight: bold;
+
+		}
+		.close:hover, .close:focus{
+			color: red;
+			cursor: pointer;
+		}
+		/*Add zoom animation*/
+		.animate{
+			-webkit-animation: animatezoom 0.6s;
+			animation: animatezoom 0.6s;
+		}
+		@-webkit-keyframes animatezoom{
+			from{-webkit-transform: scale(0)} to{-webkit-transform: scale(1)}
+		}
+		@keyframes animatezoom{
+			from{transform: scale(0)} to{transform: scale(1)}		
+		}
+		/*Change style for span anda cancel button on extra small screnns*/
+		@media screen and (max-width: 300px){
+			span.psw{
+				display: block;
+				float: none;
+			}
+			.cancelbtn{
+				width: 100%;
+			}
+		}
+
+
+	</style>
+
+	<title>Login Form</title>
+
+</head>
+<body>
+	<button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">Login</button>
+	<div id="id01" class="modal">
+		<!-- kita bermain juga dengan nodejs -->
+		<form class="modal-content animate" action="/chatting" method="POST">
+			<div class="imgcontainer">
+				<!-- selector ini untuk menampilkan ikon x (close) pada form, jika di klick maka  keluar dari form login -->
+				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close">&times;</span> <!-- penggunaan '&times;' untk menampilkan ikon x -->
+<!-- 				<img src="avatar.jpg" alt="Avatar" class="avatar"> -->
+			</div>
+			<div class="container">
+				<label for="name"><b>Username</b></label> <input type="text" name="nama" placeholder="Masukan Nama Pengguna" required> <!-- penggunaan 'required' mengharuskan user untuk mengisi inputan -->
+				<button type="submit">Login</button>
+			</div>
+			<div class="container" style="background-color: #f1f1f1">
+				<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+			</div>
+		</form>
+	</div>
+
+<!-- 	<script type="text/javascript">
+		// Get the modal
+		var modal = document.getElementById('id01');
+
+		// when user clicks anywhere outside of the modal, close it
+		window.onclick = (event)=> {
+			if(event.target == modal);
+			modal.style.display = 'none';
+		}
+
+		// saya harus memberikan komentar kepada script ini, karena ini bug 
+	</script> -->
+</body>
+</html>

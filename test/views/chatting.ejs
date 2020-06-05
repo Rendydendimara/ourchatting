@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chatting</title>
+	<link rel="stylesheet" type="text/css" href="../assets/style.css">
+	<!-- load library socket untuk front-end -->
+	<script type="text/javascript" src="../assets/socket.io.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+ 	<!-- div pembungkus/utama -->
+	<div id="mario-chat">
+			<center><input type="text" id="handle" value="<%= user.nama %>" style=" color: #fff; width: 100%; text-align: center; font-size: 30px; font-style: italic; font-weight: bolder; margin-top: 10px; "  ></center>
+	<!-- 	div pembungkus isi pesan -->
+		<div id="chat-window">
+			<!-- div yang menghandle isi pesan -->
+			<div id="output"></div>
+			<!-- div yang akan mencetak bahwa pengguna A sedang menulis pesan -->
+			<div id="feedback"></div>
+		</div>
+ <!--  		<center><input type="text" id="handle" placeholder="Nama Pengguna" value="<%= user.nama %>" /></center> -->
+ 		<textarea style="font-size: 20px" placeholder="Pesan" id="message" onclick="sedangKetik()" cols="20" rows="2" > 
+ 			
+ 		</textarea>
+<!-- 		<input type="text" placeholder="Pesan" id="message" onclick="sedangKetik()" on /> -->
+		<button id="send">Send</button>
+  	<script type="text/javascript" src="../assets/chat.js"></script>
+  	<!-- footer -->
+  	<div id="footer">
+		<center><p>&copy; copyright 2019 by R3ndyDinar </p></center>  		
+  	</div>
+</body>	
+</html>		

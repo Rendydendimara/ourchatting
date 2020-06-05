@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Chatting</title>
+    <!-- hubungkan file css yang dibuat sendiri -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- hubungkan file font awesome css -->
+    <link rel="stylesheet" href="/assets/font-awesome-free-5.9.0/css/all.min.css">
+    <!-- Hubungkan file bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+ </head>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="#page-top"> OURCHATTING HOME</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/profile">PROFILE</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/teman">TEMAN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/about">ABOUT</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item js-scroll-trigger">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/feedback">FEEDBACK</a>
+                    </li>
+                    <li class="nav-item js-scroll-trigger">
+                        <a class="nav-link js-scroll-trigger text-white" href="/ourchatting/user/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+        
+    <div class="text-center">
+        <!-- tempat menaruh pesan kesalahan saat update profile -->
+        <h1><%=message%></h1>
+        <img data-toggle="modal" data-target="#imageProfile" src="<%=image%>" width="15%" height="1%" style="border-radius: 100%"  alt="<%=name%>">
+            <!-- selector untuk menampilkan modal upload foto profile -->
+        <div>
+            <center>
+                <div  data-toggle="modal" data-target="#uploadImageProfile" class="fas fa-camera fa-lg bg-light" style="color: gray;" > </div>    
+            </center>
+
+<!--                 <button class="btn btn-primary btn-sm mt-3" type="button" data-toggle="modal" data-target="#uploadImageProfile">Ubah Foto</button>                 -->
+            <!-- pop up modal upload foto profile -->
+            <div class="modal fade" id="uploadImageProfile" role="dialog" arialabelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Upload Foto Profile</h5>
+                            <button type="botton" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- form upload foto profile -->                                   
+                            <form action="/ourchatting/user/upload_image_profile" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="file" accept="image/*" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">UPLOAD</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                                              
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="imageProfile" role="dialog" arialabelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-header ml-3" >
+                <h5 class="modal-title text-white" ><%=name%></h5>
+                <button type="botton" class="close text-white"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <center>                              
+                    <img src="<%=image%>" width="100%" height="100%">
+                </center>   
+            </div>
+        </div>
+    </div>
+       
+    <div style="width: 90%" class="ml-3 mt-3">
+        <div class="alert alert-success alert-dismissible fade show bg-light text-black-50" role="alert">Name  : <%=name%>
+            <div style="margin-left: 100%" data-target="#ubahNama" data-toggle="modal" class="fas fa-pen fa-lg bg-light" style="color: gray;" > </div>    
+<!--                 <button type="button" data-target="#ubahNama" data-toggle="modal" class="btn btn-primary btn-sm" style="margin-left: 100%">Ubah</button>
+ -->                <!-- pop up modal ubah nama account-->
+            <div class="modal fade" id="ubahNama" role="dialog" arialabelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ubah Nama</h5>
+                            <button type="botton" class="close" data-dismiss="modal" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- form ubah nama account -->                                   
+                            <form action="/ourchatting/user/update/name" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" value="<%=name%>" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">UBAH NAMA</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                                              
+            </div>
+        </div>
+        <div class="alert alert-success alert-dismissible fade show bg-light text-black-50" role="alert">Email : <%=email%></div>
+        <div class="alert alert-success alert-dismissible fade show bg-light text-black-50" role="alert">Bio   : <%=bio%>
+            <div style="margin-left: 100%" data-target="#ubahBio" data-toggle="modal" class="fas fa-pen fa-lg bg-light" style="color: gray;" > </div>    
+<!--                 <button type="button" data-target="#ubahBio"  data-toggle="modal"  class="btn btn-primary btn-sm" style="margin-left: 100%">Ubah</button> -->
+            <!-- pop up modal ubah bio account -->
+            <div class="modal fade" id="ubahBio" role="dialog" arialabelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Ubah Bio</h5>
+                            <button type="botton" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- form ubah bio account -->                                   
+                            <form action="/ourchatting/user/update/bio" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="bio" value="<%=bio%>" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">UBAH BIO</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                                              
+            </div>
+        </div>
+        <a href="/ourchatting/user/setelan_akun" class="m-1"><div class="alert alert-success alert-dismissible fade show bg-light text-black-50" role="alert">Setelan Akun</div></a>  
+    </div>
+    <div>
+        <div class="footer bg-dark fixed-bottom text-white text-center">copyright@2019 by r3ndyDinar</div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/css/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+</body>
+</html>
